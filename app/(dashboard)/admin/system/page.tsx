@@ -3,7 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldCheckIcon, DatabaseIcon, SettingsIcon, UsersIcon } from "lucide-react";
+import { ShieldCheckIcon, DatabaseIcon, SettingsIcon, UsersIcon, HistoryIcon } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -35,6 +35,13 @@ export default async function AdminSystemPage() {
       href: "/admin/system/backup",
       icon: DatabaseIcon,
       color: "text-blue-500 bg-blue-50 dark:bg-blue-900/20",
+    },
+    {
+      title: "نقاط الاستعادة / Restore Points (Developer)",
+      description: "Create/list git restore points, view diffs, restore files (developer panel).",
+      href: "/admin/system/restore-points",
+      icon: HistoryIcon,
+      color: "text-violet-500 bg-violet-50 dark:bg-violet-900/20",
     },
     {
       title: "الإعدادات / System Settings",

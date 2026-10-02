@@ -20,6 +20,7 @@ import {
   UserRoundIcon,
   ShieldCheckIcon,
   DatabaseIcon,
+  HistoryIcon,
 } from "lucide-react";
 import { UserMenu } from "@/components/shell/user-menu";
 import { normalizeLogoUrl } from "@/lib/utils/logo-helpers";
@@ -64,6 +65,7 @@ const CONFIG_NAV: NavItemDef[] = [
   { href: "/admin/system", label: "nav.systemControl", icon: SettingsIcon },
   { href: "/admin/system/security", label: "nav.security", icon: ShieldCheckIcon },
   { href: "/admin/system/backup", label: "nav.backup", icon: DatabaseIcon },
+  { href: "/admin/system/restore-points", label: "nav.restorePoints", icon: HistoryIcon },
   { href: "/admin/guide", label: "nav.liveGuide", icon: BookOpenIcon },
 ];
 
