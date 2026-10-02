@@ -2,9 +2,9 @@
 const nextConfig = {
   output: 'standalone',
   images: { unoptimized: true },
-  // Dev server (.next) and prod build/start (.next-prod) share the working dir;
-  // split the dist dir so `next dev -p 3101` and `next start -p 3001` can run together.
-  distDir: process.env.NODE_ENV === 'production' ? '.next-prod' : '.next',
+  // On Vercel, always output to .next (Vercel requires it). Locally, split the
+  // dist dir so `next dev -p 3101` (.next) and `next start -p 3001` (.next-prod) can run together.
+  distDir: process.env.VERCEL ? '.next' : process.env.NODE_ENV === 'production' ? '.next-prod' : '.next',
 };
 
 module.exports = nextConfig;
