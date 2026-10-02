@@ -113,3 +113,9 @@
 - **DB (site = .env.local ap-southeast):** companyInfo.logoForPdfUrl+logoUrl = /uploads/company/company-1790950592341-logo.png; SystemSetting company.name = "ROWAD SABA-A Logistics"; homepage.backgroundType=slider, sliderImages=4, sliderInterval=6, sliderOverlay=55.
 - **Hash:** schema.cp-017.prisma = BD733EF775FC5F59CDBA1297317B28FC4D665C01D347CAA78E0F512FBAD80399.
 - **???:** RESTORE_POINTS.md + PROJECT_MAP.cp-017.md + schema.cp-017.prisma.
+
+---
+
+## Checkpoint cp-018 - 2026-10-02 - DONE: Developer Restore Points panel
+- Created from the developer Restore Points panel under Admin > System Control. Note: Developer control panel for restore points: list/create git restore points, view per-point diffs, hard-restore files (SUPER_ADMIN). Server actions + safe git engine (no shell). New page /admin/system/restore-points, sidebar entry, i18n keys.
+- Tag: `restores/cp-018-developer-restore-points-panel` (commit b3d80f0) | files changed: 7.

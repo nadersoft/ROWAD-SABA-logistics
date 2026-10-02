@@ -39,6 +39,7 @@ git checkout <نقطة> -- .              # استرجاع ملفات النقط
 | cp-014 | 2026-09-22 | **PDF LOGO FIX (P0)** | إصلاح pdfmake "Invalid image" + `getLogoAsDataUrl` | كسر PDF (إن وُجد logo مسار محلي) |
 | cp-015 | 2026-09-22 | **LOGO UNIFIED** | شعار واحد للنافبار/التقارير/Favicon + حذف favicon.ico | شعارات متعددة/قديمة |
 | cp-016 | 2026-09-22 | **Admin logo + colors + Homepage bg** | شعار ROWAD في السايدبار + مزامنة الألوان + نظام خلفيات الرئيسية | خلفيات وردية قديمة |
+| **cp-018** | **2026-10-02** | Developer Restore Points panel | Developer control panel for restore points: list/create git restore points, view per-point diffs, hard-restore files (SUPER_ADMIN). Server actions + safe git engine (no shell). New page /admin/system/restore-points, sidebar entry, i18n keys. | files-استرجاع عبر git، والبيانات من backups/ |
 | **cp-017** | **2026-10-02** | **Logos + Slider + Git baseline** | (تفصيل أدنى) شعار جديد بقرص أبيض + سلايدر Ken Burns + اسم ROWAD SABA'A + git | فقدان كل ما أُنجز اليوم |
 
 ---
@@ -71,3 +72,13 @@ git checkout <نقطة> -- .              # استرجاع ملفات النقط
 2. أضف سطراً في هذا الجدول يشرح: **ماذا**، **أين (ملفات)**، **ماذا في DB/رفع**، **أثر الرجوع**.
 3. أي تغيير لبيانات (لمسات إعدادات/شعار) يُوثَّق هنا بقيمه قبل/بعد.
 4. عند الحاجة لعودة: استخدم `git checkout <tag> -- .` للملفات، واستردّ البيانات من `backups/` الأحدث.
+---
+
+## cp-018 — Developer Restore Points panel (2026-10-02)
+
+**tag:** `restores/cp-018-developer-restore-points-panel` | **short:** `b3d80f0` | تعداد الملفات: 7
+
+- **المحتوى:** `M pp/(dashboard)/admin/system/page.tsx`, `M components/shell/app-sidebar.tsx`, `M lib/i18n.ts`, `untracked app/(dashboard)/admin/system/restore-points/`, `untracked lib/actions/restore.ts`, `untracked lib/restore/`, `untracked scripts/_mk-point.ts`
+- **ملاحظة المطور:** Developer control panel for restore points: list/create git restore points, view per-point diffs, hard-restore files (SUPER_ADMIN). Server actions + safe git engine (no shell). New page /admin/system/restore-points, sidebar entry, i18n keys.
+- **استرداد الملفات:** `git reset --hard restores/cp-018-developer-restore-points-panel` — أو `git checkout restores/cp-018-developer-restore-points-panel -- .`
+- **بيانات DB:** استردها من أحدث مجلد ضمن `backups/` بتاريخ 2026-10-02.
