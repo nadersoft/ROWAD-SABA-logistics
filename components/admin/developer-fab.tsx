@@ -9,10 +9,11 @@ const HIDDEN_ROLES = ["CLIENT", "SUPPORT", "USER"];
 export function DeveloperFab() {
   const { data: session } = useSession();
   const role = ((session?.user as Record<string, unknown>)?.role as string || "").toUpperCase();
+  const [open, setOpen] = useState(false);
+
   if (HIDDEN_ROLES.includes(role)) return null;
   if (role && !["ADMIN", "MANAGER", "OWNER", "SUPER_ADMIN"].includes(role)) return null;
 
-  const [open, setOpen] = useState(false);
   return (
     <>
       <button

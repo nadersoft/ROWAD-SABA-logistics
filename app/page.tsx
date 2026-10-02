@@ -219,7 +219,7 @@ export default async function HomePage() {
       <section id="whyus" className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-16 text-center">
-            <span className="text-sm font-semibold uppercase tracking-widest text-[var(--primary)]">Why Rowad Saba'a</span>
+            <span className="text-sm font-semibold uppercase tracking-widest text-[var(--primary)]">Why Rowad Saba&apos;a</span>
             <h2 className="mt-3 text-4xl font-bold text-[var(--alola-dark)] sm:text-5xl">The Logistics Partner You Can Trust</h2>
           </Reveal>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -414,7 +414,7 @@ export default async function HomePage() {
               <ul className="space-y-2 text-sm text-white/60">
                 <li>
                   <a href="#whyus" className="hover:text-white">
-                    Why Rowad Saba'a
+                    Why Rowad Saba&apos;a
                   </a>
                 </li>
                 <li>

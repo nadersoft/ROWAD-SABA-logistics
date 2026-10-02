@@ -32,8 +32,8 @@ export function FloatingActions({
   position,
   color,
 }: FloatingActionsProps) {
-  if (!enabled) return null;
   const { data: session } = useSession();
+  if (!enabled) return null;
   const role = ((session?.user as Record<string, unknown>)?.role as string || "").toUpperCase();
   if (HIDDEN_ROLES.includes(role)) return null;
   if (role && !["ADMIN", "MANAGER", "OWNER", "SUPER_ADMIN"].includes(role)) return null;
