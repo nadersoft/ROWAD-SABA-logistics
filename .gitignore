@@ -46,3 +46,5 @@ next-env.d.ts
 # backups & logs (sensitive exports, one-off snapshots, dev/build output)
 /backups/
 *.log
+
+pnpm-lock.yaml
