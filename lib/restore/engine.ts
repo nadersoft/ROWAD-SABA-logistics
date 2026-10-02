@@ -266,17 +266,30 @@ export async function getPointDetail(tag: string): Promise<Result<PointDetail>> 
 
 export async function getWorktreeChanges(): Promise<Result<WorktreeChange[]>> {
   const root = await getRepoRoot();
-  const r = await runGit(["status", "--porcelain=v1"], { cwd: root });
+  // Porcelain v1 -z: records are NUL-separated "XY path". Renamed/copied entries
+  // emit the destination path as the FOLLOWING record. No shell, no quoting.
+  const r = await runGit(["status", "--porcelain=v1", "-z"], { cwd: root });
   if (!r.ok) return { ok: false, error: "Failed to read working tree state" };
-  const changes: WorktreeChange[] = (r.stdout ? r.stdout.split(/\r?\n/) : [])
-    .map((line) => {
-      const status = line.slice(0, 2).trim() || "??";
-      let rest = line.slice(3);
-      if (rest.includes(" -> ")) rest = rest.split(" -> ").pop() ?? rest;
-      rest = rest.replace(/^"(.*)"$/, "$1");
-      return { status, path: rest };
-    })
-    .filter((c) => !!c.path);
+
+  const changes: WorktreeChange[] = [];
+  const records = r.stdout.split("\0");
+  for (let i = 0; i < records.length; i++) {
+    const rec = records[i];
+    if (!rec) continue;
+    const code = rec.slice(0, 2).trim();
+    let path = rec.slice(3).replace(/^["]+|["]+$/g, "").trim();
+    if (path.startsWith("old -> new")) path = path.replace(/^.* -> /, "");
+    if (!path) continue;
+    if (code.startsWith("R") || code.startsWith("C")) {
+      const dest = records[i + 1]?.trim();
+      if (dest) {
+        changes.push({ status: code.slice(0, 1), path: dest });
+        i++;
+        continue;
+      }
+    }
+    changes.push({ status: code || "??", path });
+  }
   return { ok: true, data: changes };
 }
 
@@ -459,12 +472,12 @@ function writeRestoreDocs(
 
   fs.appendFileSync(registryFile, section, "utf8");
 
-  // Snapshots per project convention.
+  // Snapshots per project convention (PROJECT_MAP.cp-017.md / schema.cp-017.prisma).
   if (fs.existsSync(projectMap)) {
-    fs.copyFileSync(projectMap, path.join(root, `PROJECT_MAP.cp-${p.number}.md`));
+    fs.copyFileSync(projectMap, path.join(root, `PROJECT_MAP.cp-${p.id}.md`));
   }
   if (fs.existsSync(schema)) {
-    fs.copyFileSync(schema, path.join(root, `schema.cp-${p.number}.prisma`));
+    fs.copyFileSync(schema, path.join(root, `schema.cp-${p.id}.prisma`));
   }
 
   // CHECKPOINTS entry.
