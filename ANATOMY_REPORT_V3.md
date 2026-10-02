@@ -1,4 +1,4 @@
-﻿## Anatomy Report - 08/23/2026 02:11:49
+## Anatomy Report - 08/23/2026 02:11:49
 
 ### 1- .env Files
 

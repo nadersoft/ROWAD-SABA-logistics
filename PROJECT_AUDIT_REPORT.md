@@ -1,4 +1,4 @@
-﻿# PROJECT AUDIT REPORT - Rowad Sabaa Logistics Platform
+# PROJECT AUDIT REPORT - Rowad Sabaa Logistics Platform
 
 > Read-only audit. Generated 2026-08-17. No code changes made.
 
