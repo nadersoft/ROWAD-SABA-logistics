@@ -1,0 +1,615 @@
+// Prisma schema for Rowad Sabaa Logistics Platform
+// Core principle: ZERO hardcoded values — business config lives in SystemSetting/DB.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ---------- Enums ----------
+
+enum Role {
+  SUPER_ADMIN
+  MANAGER
+  SUPPORT
+  CLIENT
+}
+
+enum Mode {
+  FCL
+  LCL
+  AIR
+  BULK
+}
+
+enum Tier {
+  ECONOMY
+  STANDARD
+  EXPRESS
+}
+
+enum Category {
+  APPEARANCE
+  PRICING
+  CURRENCY
+  INTEGRATION
+  CONTENT
+  DEFAULTS
+}
+
+enum PortType {
+  SEA
+  AIR
+  LAND
+}
+
+enum ShipmentStatus {
+  CREATED
+  PICKED_UP
+  IN_TRANSIT
+  CUSTOMS
+  DELIVERED
+  CANCELLED
+}
+
+enum QuoteStatus {
+  DRAFT
+  PENDING
+  ACCEPTED
+  EXPIRED
+  DECLINED
+}
+
+enum TicketStatus {
+  OPEN
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  VOID
+}
+
+enum TicketPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+// ---------- Auth.js v5 (Prisma adapter) ----------
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  phone         String?   @unique
+  phoneVerified Boolean   @default(false)
+  countryCode   String?
+  emailVerified DateTime?
+  image         String?
+  role          Role      @default(CLIENT)
+  isActive      Boolean   @default(true)
+  passwordHash  String?
+  accounts      Account[]
+  sessions      Session[]
+  auditLogs     AuditLog[]
+  updatedSettings SystemSetting[]
+  assignedTickets Ticket[]
+  notifications Notification[]
+  backups         Backup[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ---------- Master data ----------
+
+model Port {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  name      String
+  type      PortType @default(SEA)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  country   Country? @relation(fields: [countryId], references: [id])
+  countryId String?
+
+  ratesFrom        ShippingRate[] @relation("RatesFrom")
+  ratesTo          ShippingRate[] @relation("RatesTo")
+  quotesFrom       Quote[]        @relation("QuoteFrom")
+  quotesTo         Quote[]        @relation("QuoteTo")
+  shipmentsFrom    Shipment[]     @relation("ShipmentFrom")
+  shipmentsTo      Shipment[]     @relation("ShipmentTo")
+  rulesFrom        PricingRule[]  @relation("RuleFrom")
+  rulesTo          PricingRule[]  @relation("RuleTo")
+
+  @@index([countryId])
+}
+
+model Carrier {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  name      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  shipments Shipment[]
+}
+
+model ContainerType {
+  id            String  @id @default(cuid())
+  code          String  @unique
+  name          String
+  teu           Float   @default(1)
+  isActive      Boolean @default(true)
+  shippingRates ShippingRate[]
+  quotes        Quote[]
+  shipments     Shipment[]
+  pricingRules  PricingRule[]
+}
+
+// ---------- Pricing ----------
+
+model ShippingRate {
+  id                String   @id @default(cuid())
+  originPortId      String
+  destinationPortId String
+  mode              Mode
+  containerTypeId   String?
+  tier              Tier
+  baseCost          Decimal  @db.Decimal(12, 2)
+  validFrom         DateTime @default(now())
+  validUntil        DateTime?
+  isActive          Boolean  @default(true)
+  updatedAt         DateTime @updatedAt
+
+  originPort      Port           @relation("RatesFrom", fields: [originPortId], references: [id])
+  destinationPort Port           @relation("RatesTo", fields: [destinationPortId], references: [id])
+  containerType   ContainerType? @relation(fields: [containerTypeId], references: [id])
+
+  @@index([originPortId, destinationPortId, mode, isActive])
+}
+
+model ExchangeRate {
+  currency    String   @id
+  rate        Decimal  @db.Decimal(14, 6)
+  buyRate     Decimal? @db.Decimal(14, 6)
+  sellRate    Decimal? @db.Decimal(14, 6)
+  autoUpdate  Boolean  @default(false)
+  lastUpdated DateTime @default(now())
+}
+
+// ---------- Master data: Countries & Currencies (feature 6/7) ----------
+
+model Country {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  name      String
+  dialCode  String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  ports Port[]
+
+  @@index([name])
+}
+
+model Currency {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  name      String
+  symbol    String
+  rate      Decimal  @db.Decimal(14, 6)
+  isDefault Boolean  @default(false)
+  isActive  Boolean  @default(true)
+  updatedAt DateTime @updatedAt
+}
+
+// ---------- Smart field engine & pricing engine (features 4/5/9) ----------
+
+model FieldDefinition {
+  id           String   @id @default(cuid())
+  key          String   @unique
+  label        String
+  type         String   @default("number")
+  appliesTo    String   @default("ALL")
+  icon         String?
+  unit         String?
+  defaultValue Decimal? @db.Decimal(14, 2)
+  isEnabled    Boolean  @default(true)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  ruleFields PricingRuleField[]
+}
+
+model PricingRule {
+  id                String   @id @default(cuid())
+  name              String
+  originPortId      String?
+  destinationPortId String?
+  mode              Mode?
+  containerTypeId   String?
+  minWeightKg       Decimal? @db.Decimal(14, 2)
+  maxWeightKg       Decimal? @db.Decimal(14, 2)
+  priority          Int      @default(100)
+  baseRate          Decimal  @db.Decimal(14, 2)
+  weightRate        Decimal? @db.Decimal(14, 2)
+  fobExwType        String?
+  fobExwRate        Decimal? @db.Decimal(14, 2)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  originPort      Port?           @relation("RuleFrom", fields: [originPortId], references: [id])
+  destinationPort Port?           @relation("RuleTo", fields: [destinationPortId], references: [id])
+  containerType   ContainerType?  @relation(fields: [containerTypeId], references: [id])
+  fields          PricingRuleField[]
+  alerts          SystemAlert[]
+
+  @@index([originPortId, destinationPortId, mode, isActive])
+}
+
+model PricingRuleField {
+  id        String    @id @default(cuid())
+  ruleId    String
+  fieldId   String
+  value     Decimal?  @db.Decimal(14, 2)
+  isEnabled Boolean   @default(true)
+  createdAt DateTime  @default(now())
+
+  rule  PricingRule     @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  field FieldDefinition @relation(fields: [fieldId], references: [id])
+
+  @@unique([ruleId, fieldId])
+  @@index([fieldId])
+}
+
+model SystemAlert {
+  id         String    @id @default(cuid())
+  ruleId     String?
+  level      String    @default("MEDIUM")
+  title      String
+  message    String
+  impact     Json?
+  isResolved Boolean   @default(false)
+  resolvedAt DateTime?
+  createdAt  DateTime  @default(now())
+
+  rule PricingRule? @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+
+  @@index([isResolved])
+  @@index([createdAt])
+}
+
+// ---------- Business ----------
+
+model Customer {
+  id        String   @id @default(cuid())
+  name      String
+  company   String?
+  email     String?
+  phone     String?
+  taxId     String?
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  quotes    Quote[]
+  shipments Shipment[]
+  invoices  Invoice[]
+
+  @@index([name])
+}
+
+model Quote {
+  id                 String      @id @default(cuid())
+  quoteNumber        String      @unique
+  customerId         String?
+  mode               Mode
+  originPortId       String?
+  destinationPortId  String?
+  containerTypeId    String?
+  tier               Tier
+  cargo              Json?
+  baseCost           Decimal?    @db.Decimal(12, 2)
+  surcharges         Json?
+  total              Decimal     @db.Decimal(12, 2)
+  currency           String      @default("SAR")
+  status             QuoteStatus @default(DRAFT)
+  validUntil         DateTime?
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  customer         Customer?      @relation(fields: [customerId], references: [id])
+  originPort       Port?          @relation("QuoteFrom", fields: [originPortId], references: [id])
+  destinationPort  Port?          @relation("QuoteTo", fields: [destinationPortId], references: [id])
+  containerType    ContainerType? @relation(fields: [containerTypeId], references: [id])
+  shipment         Shipment?
+  invoice          Invoice?
+
+  @@index([customerId])
+  @@index([status])
+}
+
+model Invoice {
+  id            String        @id @default(cuid())
+  invoiceNumber String        @unique
+  customerId    String
+  shipmentId    String?       @unique
+  quoteId       String?       @unique
+  status        InvoiceStatus @default(DRAFT)
+  subtotal      Decimal?      @db.Decimal(12, 2)
+  taxes         Decimal?      @db.Decimal(12, 2)
+  total         Decimal       @db.Decimal(12, 2)
+  currency      String        @default("SAR")
+  items         Json?
+  notes         String?
+  dueDate       DateTime?
+  paidAt        DateTime?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  customer  Customer  @relation(fields: [customerId], references: [id])
+  shipment  Shipment? @relation(fields: [shipmentId], references: [id])
+  quote     Quote?    @relation(fields: [quoteId], references: [id])
+
+  @@index([customerId])
+  @@index([status])
+  @@index([dueDate])
+}
+
+model Shipment {
+  id                 String        @id @default(cuid())
+  shipmentNumber     String        @unique
+  customerId         String
+  mode               Mode
+  originPortId       String
+  destinationPortId  String
+  containerTypeId    String?
+  tier               Tier
+  status             ShipmentStatus @default(CREATED)
+  totalCost          Decimal?      @db.Decimal(12, 2)
+  currency           String        @default("SAR")
+  eta                DateTime?
+  carrierId          String?
+  trackingNumber     String?
+  trackingProvider   String?       @default("ship24")
+  lastTrackedAt      DateTime?
+  externalStatus     String?
+  quoteId            String?       @unique
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  customer         Customer       @relation(fields: [customerId], references: [id])
+  originPort       Port           @relation("ShipmentFrom", fields: [originPortId], references: [id])
+  destinationPort  Port           @relation("ShipmentTo", fields: [destinationPortId], references: [id])
+  containerType    ContainerType? @relation(fields: [containerTypeId], references: [id])
+  carrier          Carrier?       @relation(fields: [carrierId], references: [id])
+  quote            Quote?         @relation(fields: [quoteId], references: [id])
+  invoice          Invoice?
+  events           ShipmentEvent[]
+
+  @@index([customerId, status])
+  @@index([status])
+  @@index([trackingNumber])
+}
+
+model ShipmentEvent {
+  id         String        @id @default(cuid())
+  shipmentId String
+  status     ShipmentStatus
+  location   String?
+  note       String?
+  occurredAt DateTime      @default(now())
+
+  shipment Shipment @relation(fields: [shipmentId], references: [id], onDelete: Cascade)
+
+  @@index([shipmentId, occurredAt])
+}
+
+// ---------- Config (zero hardcode) ----------
+
+model SystemSetting {
+  key         String    @id
+  value       Json
+  category    Category
+  description String?
+  updatedById String?
+  updatedAt   DateTime  @updatedAt
+
+  updatedBy User? @relation(fields: [updatedById], references: [id])
+
+  @@index([category])
+}
+
+// ---------- Audit ----------
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  actorRole String?
+  action    String
+  target    String
+  payload   Json?
+  createdAt DateTime @default(now())
+
+  actor User? @relation(fields: [actorId], references: [id])
+
+  @@index([createdAt])
+}
+
+// ---------- Landing / Marketing content (zero hardcode) ----------
+
+model Partner {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String?
+  website   String?
+  isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  company   String?
+  content   String
+  rating    Int      @default(5)
+  isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Faq {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+// ---------- Support / Ticket system (Contact → Ticket) ----------
+
+model Ticket {
+  id            String        @id @default(cuid())
+  number        String        @unique
+  customerName  String
+  customerEmail String?
+  customerPhone String?
+  subject       String
+  message       String
+  status        TicketStatus  @default(OPEN)
+  priority      TicketPriority @default(NORMAL)
+  assigneeId    String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  assignee User?          @relation(fields: [assigneeId], references: [id])
+  messages TicketMessage[]
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model TicketMessage {
+  id         String   @id @default(cuid())
+  ticketId   String
+  authorName String?
+  body       String
+  createdAt  DateTime @default(now())
+
+  ticket Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+
+  @@index([ticketId, createdAt])
+}
+
+// ---------- Notifications & alerts ----------
+
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String?
+  title     String
+  body      String
+  type      String    @default("info")
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, readAt])
+}
+
+// ---------- Smart OTP (Provider pattern) ----------
+
+model OtpVerification {
+  id         String    @id @default(cuid())
+  identifier String
+  channel    String    @default("email")
+  code       String
+  expiresAt  DateTime
+  usedAt     DateTime?
+  attempts   Int       @default(0)
+  createdAt  DateTime  @default(now())
+
+  @@index([identifier, channel])
+}
+
+// ---------- Backups (point 7) ----------
+
+model Backup {
+  id           String   @id @default(cuid())
+  filename     String
+  kind         String   @default("manual")
+  scope        String   @default("settings")
+  sizeBytes    Int      @default(0)
+  guideVersion String?
+  data         Json
+  createdById  String?
+  createdAt    DateTime @default(now())
+
+  createdBy User? @relation(fields: [createdById], references: [id])
+
+  @@index([createdAt])
+}
+
+// ---------- Rate limiting (calculator & tracking) ----------
+
+model RateLimitHit {
+  id        String   @id @default(cuid())
+  scope     String
+  key       String
+  createdAt DateTime @default(now())
+
+  @@index([scope, key, createdAt])
+}

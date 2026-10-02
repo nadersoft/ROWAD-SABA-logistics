@@ -1,0 +1,23 @@
+# Backup info for P45 Yemen Edition
+# Snapshot: backup/current-db-snapshot.json (34.8 KB)
+# Timestamp: 2026-08-23
+
+## Data preserved:
+- 88 SystemSettings (appearance, content, pricing, integration, defaults)
+- 9 Users
+- 9 Countries
+- 11 Ports
+- 8 Currencies
+- 2 Customers
+- 2 Invoices
+
+## CompanyInfo: EMPTY in DB
+- Fallback: "ALOLA LOGISTICS" (hardcoded default)
+- systemSettings has: content.company.name, company.logoDark, company.logoLight, company.favicon
+- These settings serve as additional fallback if CompanyInfo remains empty
+
+## CacheStore: EMPTY (will auto-populate on first request)
+- company:info → from CompanyInfo or settings fallback
+- system:all → from all 88 SystemSettings
+
+## New P45 tables (4): InfraSecret, CacheStore, HealthCheckLog, ConfigAuditLog

@@ -1,0 +1,10 @@
+5P*t5wX!V/g@K*@
+كلمة سر رواد سبأ
+
+رابط القاعدة:https://yiahiwalyblkynansrci.supabase.co
+publishable Key:REDACTED_PUBLISHABLE_KEY
+postgresql://postgres:5P*t5wX!V/g@K*@@db.yiahiwalyblkynansrci.supabase.co:5432/postgres
+
+
+NEXT_PUBLIC_SUPABASE_URL=https://yiahiwalyblkynansrci.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=REDACTED_PUBLISHABLE_KEY

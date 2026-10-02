@@ -1,0 +1,1260 @@
+{
+  "timestamp": "2026-08-23T00:40:04.763Z",
+  "companyInfo": [],
+  "systemSettings": [
+    {
+      "key": "appearance.accent",
+      "value": "#0055ff",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:48:30.427Z"
+    },
+    {
+      "key": "appearance.showWhatsapp",
+      "value": true,
+      "category": "APPEARANCE",
+      "description": "Show floating WhatsApp button (legacy key)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:16.017Z"
+    },
+    {
+      "key": "appearance.heroGradientFrom",
+      "value": "#0a1628",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:48:57.117Z"
+    },
+    {
+      "key": "content.tracking.title",
+      "value": "Track Your Shipment",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:26.113Z"
+    },
+    {
+      "key": "appearance.heroGradientMid",
+      "value": "#004fba",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:00.652Z"
+    },
+    {
+      "key": "appearance.textGradientTo",
+      "value": "#0055ff",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:16.557Z"
+    },
+    {
+      "key": "appearance.glassBlur",
+      "value": 20,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:24.237Z"
+    },
+    {
+      "key": "content.hero.trackingPlaceholder",
+      "value": "Enter container number, B/L, or booking reference…",
+      "category": "CONTENT",
+      "description": "Hero tracking input placeholder",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:44.703Z"
+    },
+    {
+      "key": "content.hero.subtitle",
+      "value": "Fast, transparent freight forwarding powered by live rates.",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:20.911Z"
+    },
+    {
+      "key": "appearance.glassBg",
+      "value": "#ffffff",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:19.270Z"
+    },
+    {
+      "key": "content.contact.phone",
+      "value": "+966536436537",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:28.481Z"
+    },
+    {
+      "key": "content.services",
+      "value": [
+        {
+          "id": "fcl",
+          "icon": "container",
+          "specs": [
+            {
+              "label": "20' GP",
+              "value": "33.2 CBM",
+              "detail": "Max payload: 28,200 kg"
+            },
+            {
+              "label": "40' GP",
+              "value": "67.7 CBM",
+              "detail": "Max payload: 26,680 kg"
+            },
+            {
+              "label": "40' HC",
+              "value": "76.3 CBM",
+              "detail": "Max payload: 26,380 kg"
+            }
+          ],
+          "title": "FCL Shipping",
+          "features": [
+            "Door-to-door tracking",
+            "Customs pre-clearance",
+            "Reefer & special cargo",
+            "Real-time EDI updates"
+          ],
+          "subtitle": "Full Container Load",
+          "description": "Exclusive 20' and 40' container management with guaranteed space allocation across major trade lanes."
+        },
+        {
+          "id": "lcl",
+          "icon": "boxes",
+          "specs": [
+            {
+              "label": "Min Charge",
+              "value": "1 CBM",
+              "detail": "Equivalent to 1,000 kg"
+            },
+            {
+              "label": "Max Height",
+              "value": "2.35m",
+              "detail": "Standard pallet height"
+            },
+            {
+              "label": "Consolidation",
+              "value": "48h",
+              "detail": "Average warehouse dwell time"
+            }
+          ],
+          "title": "LCL Shipping",
+          "features": [
+            "Weekly consolidation",
+            "CFS to CFS delivery",
+            "Cargo insurance",
+            "Dangerous goods handling"
+          ],
+          "subtitle": "Less than Container Load",
+          "description": "Consolidated cargo solutions with CBM-optimized loading and weekly sailings to 180+ destinations."
+        },
+        {
+          "id": "bulk",
+          "icon": "ship",
+          "specs": [
+            {
+              "label": "Handysize",
+              "value": "30,000 DWT",
+              "detail": "Draft: 10.5m"
+            },
+            {
+              "label": "Panamax",
+              "value": "80,000 DWT",
+              "detail": "Draft: 12.8m"
+            },
+            {
+              "label": "Capesize",
+              "value": "180,000 DWT",
+              "detail": "Draft: 18.0m"
+            }
+          ],
+          "title": "Bulk Shipping",
+          "features": [
+            "Voyage chartering",
+            "Port agency services",
+            "Loading supervision",
+            "B/L issuance"
+          ],
+          "subtitle": "Vessel Chartering",
+          "description": "Dry bulk, breakbulk, and project cargo via chartered vessels with voyage and time charter options."
+        },
+        {
+          "id": "air",
+          "icon": "plane",
+          "specs": [
+            {
+              "label": "Chargeable Wt",
+              "value": "1:6 Ratio",
+              "detail": "L:W:H / 6,000"
+            },
+            {
+              "label": "Express",
+              "value": "24-48h",
+              "detail": "Door-to-door"
+            },
+            {
+              "label": "Standard",
+              "value": "3-5 days",
+              "detail": "Airport-to-airport"
+            }
+          ],
+          "title": "Air Shipping",
+          "features": [
+            "IATA certified",
+            "Temperature control",
+            "AOG support",
+            "Charter broker"
+          ],
+          "subtitle": "Priority Express",
+          "description": "Time-critical air freight with express, standard, and deferred service tiers across 300+ airports."
+        },
+        {
+          "id": "customs",
+          "icon": "file-check",
+          "specs": [
+            {
+              "label": "HS Codes",
+              "value": "98 Chapters",
+              "detail": "Full tariff coverage"
+            },
+            {
+              "label": "Avg Clearance",
+              "value": "4.2h",
+              "detail": "Electronic submission"
+            },
+            {
+              "label": "Compliance",
+              "value": "99.7%",
+              "detail": "First-time pass rate"
+            }
+          ],
+          "title": "Customs Clearance",
+          "features": [
+            "HS code lookup",
+            "Duty drawback",
+            "Bonded warehouse",
+            "AEO certification"
+          ],
+          "subtitle": "HS Code & Documentation",
+          "description": "End-to-end customs brokerage with automated HS classification and document compliance verification."
+        },
+        {
+          "id": "local",
+          "icon": "truck",
+          "specs": [
+            {
+              "label": "Fleet Size",
+              "value": "450+",
+              "detail": "Own & contracted"
+            },
+            {
+              "label": "Coverage",
+              "value": "12 Hubs",
+              "detail": "Regional gateways"
+            },
+            {
+              "label": "Avg Transit",
+              "value": "6h",
+              "detail": "Port-to-warehouse"
+            }
+          ],
+          "title": "Local Transportation",
+          "features": [
+            "Real-time GPS",
+            "Electronic POD",
+            "Cross-docking",
+            "Reverse logistics"
+          ],
+          "subtitle": "Last-Mile Drayage",
+          "description": "Integrated overland logistics with FTL, LTL, and dedicated fleet services for container drayage."
+        }
+      ],
+      "category": "CONTENT",
+      "description": "Services section content (tabs + specs + features)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:46.857Z"
+    },
+    {
+      "key": "integration.exchangeRate.apiKey",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "ExchangeRate API key",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:50.899Z"
+    },
+    {
+      "key": "integration.mapbox.secretKey",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Mapbox secret key",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:54.141Z"
+    },
+    {
+      "key": "integration.tracking.provider",
+      "value": "ship24",
+      "category": "INTEGRATION",
+      "description": "Tracking provider (ship24 | marineTraffic)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:58.519Z"
+    },
+    {
+      "key": "integration.tracking.apiKey",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Tracking API key (legacy)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:00.407Z"
+    },
+    {
+      "key": "integration.twilio.sid",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Twilio account SID",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:01.827Z"
+    },
+    {
+      "key": "integration.moyasar.secretKey",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Moyasar secret key",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:10.381Z"
+    },
+    {
+      "key": "appearance.cardLift",
+      "value": 4,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:31.996Z"
+    },
+    {
+      "key": "appearance.cardShadowColor",
+      "value": "#004fba",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:26.776Z"
+    },
+    {
+      "key": "appearance.marqueeDuration",
+      "value": 28,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:39.594Z"
+    },
+    {
+      "key": "company.name",
+      "value": "Rowad Saba'a Logistics",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:03.146Z"
+    },
+    {
+      "key": "appearance.background",
+      "value": "#f4f6fa",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:48:34.233Z"
+    },
+    {
+      "key": "defaults.currency",
+      "value": "USD",
+      "category": "DEFAULTS",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-17T13:55:55.567Z"
+    },
+    {
+      "key": "company.logoDark",
+      "value": "https://cdn.phototourl.com/free/2026-08-21-b463899f-c6a6-402d-9bd8-28fee4b54922.png",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:13.205Z"
+    },
+    {
+      "key": "appearance.heroGradientTo",
+      "value": "#0055ff",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:03.366Z"
+    },
+    {
+      "key": "appearance.textGradientFrom",
+      "value": "#004fba",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:10.594Z"
+    },
+    {
+      "key": "appearance.glassBgOpacity",
+      "value": 85,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:21.755Z"
+    },
+    {
+      "key": "appearance.floatingWhatsappNumber",
+      "value": "966536436537",
+      "category": "APPEARANCE",
+      "description": "WhatsApp number (legacy key)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:21.053Z"
+    },
+    {
+      "key": "appearance.heroGradientAngle",
+      "value": 135,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:05.943Z"
+    },
+    {
+      "key": "content.hero.stats",
+      "value": [
+        {
+          "label": "Countries",
+          "value": "180+"
+        },
+        {
+          "label": "TEU Annually",
+          "value": "12M+"
+        },
+        {
+          "label": "On-time Rate",
+          "value": "99.2%"
+        },
+        {
+          "label": "Support",
+          "value": "24/7"
+        }
+      ],
+      "category": "CONTENT",
+      "description": "Hero statistics (value + label)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:45.472Z"
+    },
+    {
+      "key": "integration.mapbox.publicToken",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Mapbox public token",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:52.011Z"
+    },
+    {
+      "key": "integration.twilio.authToken",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Twilio auth token (legacy)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:05.009Z"
+    },
+    {
+      "key": "defaults.originPortCode",
+      "value": "YYY",
+      "category": "DEFAULTS",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-16T19:36:28.622Z"
+    },
+    {
+      "key": "appearance.radius",
+      "value": "0.625rem",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:48:47.972Z"
+    },
+    {
+      "key": "appearance.fontFamily",
+      "value": "Inter",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:48:50.526Z"
+    },
+    {
+      "key": "content.contact.email",
+      "value": "contact@rowdsaba.com",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:30.972Z"
+    },
+    {
+      "key": "appearance.pulseColor",
+      "value": "#10b981",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:34.535Z"
+    },
+    {
+      "key": "appearance.pulseDuration",
+      "value": 2,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:37.045Z"
+    },
+    {
+      "key": "appearance.fontBaseSize",
+      "value": 16,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:48:53.087Z"
+    },
+    {
+      "key": "appearance.cardShadowOpacity",
+      "value": 25,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:29.403Z"
+    },
+    {
+      "key": "company.favicon",
+      "value": "https://cdn.phototourl.com/free/2026-08-21-b463899f-c6a6-402d-9bd8-28fee4b54922.png",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:15.809Z"
+    },
+    {
+      "key": "appearance.foreground",
+      "value": "#0f172a",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:48:38.992Z"
+    },
+    {
+      "key": "company.cr",
+      "value": "1010-0000000",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:05.919Z"
+    },
+    {
+      "key": "company.address",
+      "value": "Jadah - Al-fathilah Street - Ring Road Intersection - Opp. Money Post Exchange Company",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:08.328Z"
+    },
+    {
+      "key": "content.hero.title",
+      "value": "Global Trade ",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:18.421Z"
+    },
+    {
+      "key": "content.hero.cta",
+      "value": "Get a Quote",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:23.659Z"
+    },
+    {
+      "key": "pricing.currencyBase",
+      "value": "USD",
+      "category": "PRICING",
+      "description": "Currency that base rates are stored in",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:32.659Z"
+    },
+    {
+      "key": "content.hero.badge",
+      "value": "Live Operations Active",
+      "category": "CONTENT",
+      "description": "Hero live badge label",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:43.750Z"
+    },
+    {
+      "key": "appearance.showCall",
+      "value": true,
+      "category": "APPEARANCE",
+      "description": "Show floating Call button (legacy key)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:17.570Z"
+    },
+    {
+      "key": "integration.twilio.from",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Twilio sender number",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:06.432Z"
+    },
+    {
+      "key": "appearance.showLivechat",
+      "value": true,
+      "category": "APPEARANCE",
+      "description": "Show floating Live Chat button (legacy key)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:19.886Z"
+    },
+    {
+      "key": "defaults.currencySymbol",
+      "value": "$",
+      "category": "DEFAULTS",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-19T13:09:12.978Z"
+    },
+    {
+      "key": "pricing.quoteValidityHours",
+      "value": 24,
+      "category": "PRICING",
+      "description": "Quotation validity window (hours)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:33.468Z"
+    },
+    {
+      "key": "appearance.primary",
+      "value": "#004fba",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:48:26.650Z"
+    },
+    {
+      "key": "defaults.language",
+      "value": "en",
+      "category": "DEFAULTS",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-19T13:09:15.360Z"
+    },
+    {
+      "key": "company.logoLight",
+      "value": "https://cdn.phototourl.com/free/2026-08-21-b463899f-c6a6-402d-9bd8-28fee4b54922.png",
+      "category": "CONTENT",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-21T00:06:10.794Z"
+    },
+    {
+      "key": "integration.ship24.api_key",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Ship24 API key (auto-poll tracking)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:56.628Z"
+    },
+    {
+      "key": "integration.twilio.token",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Twilio auth token (Command Center → Integrations)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:03.068Z"
+    },
+    {
+      "key": "integration.whatsapp.key",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "WhatsApp Business / Twilio WhatsApp key",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:07.256Z"
+    },
+    {
+      "key": "tracking.portGeo",
+      "value": {
+        "DMM": [
+          26.5039,
+          50.1129
+        ],
+        "DXB": [
+          24.9826,
+          55.0531
+        ],
+        "JED": [
+          21.2854,
+          39.1575
+        ],
+        "LHR": [
+          51.47,
+          -0.4543
+        ],
+        "RUH": [
+          24.9577,
+          46.6986
+        ]
+      },
+      "category": "INTEGRATION",
+      "description": "Port code → [lat, lng] for tracking map",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:08.346Z"
+    },
+    {
+      "key": "ship24.pollIntervalMinutes",
+      "value": 60,
+      "category": "INTEGRATION",
+      "description": "Ship24 auto-poll interval (minutes)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:09.337Z"
+    },
+    {
+      "key": "appearance.floatingCallNumber",
+      "value": "+966536436537",
+      "category": "APPEARANCE",
+      "description": "Call number (legacy key)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:22.321Z"
+    },
+    {
+      "key": "appearance.floatingLivechatUrl",
+      "value": "/login",
+      "category": "APPEARANCE",
+      "description": "Live Chat target URL (legacy key)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:24.020Z"
+    },
+    {
+      "key": "appearance.floatingWhatsappMessage",
+      "value": "Hello Rowad Saba'a Logistics, I need a quote.",
+      "category": "APPEARANCE",
+      "description": "Prefilled WhatsApp message (legacy key)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:25.077Z"
+    },
+    {
+      "key": "appearance.floatingPosition",
+      "value": "right",
+      "category": "APPEARANCE",
+      "description": "Floating buttons side (legacy key)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:26.423Z"
+    },
+    {
+      "key": "appearance.floatingColor",
+      "value": "#004fba",
+      "category": "APPEARANCE",
+      "description": "Floating buttons background color (legacy key)",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:27.917Z"
+    },
+    {
+      "key": "limits.trackingPerMinute",
+      "value": 20,
+      "category": "DEFAULTS",
+      "description": "Tracking rate limit per minute per IP",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:28.811Z"
+    },
+    {
+      "key": "limits.contactPerMinute",
+      "value": 5,
+      "category": "DEFAULTS",
+      "description": "Contact form rate limit per minute per IP",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:29.981Z"
+    },
+    {
+      "key": "pricing.surcharges",
+      "value": {
+        "baf": 150,
+        "fuelPct": 8,
+        "thcOrigin": 100,
+        "insurancePct": 0.5,
+        "thcDestination": 100,
+        "profitMarginPct": 5
+      },
+      "category": "PRICING",
+      "description": "Global surcharges applied on top of base rate",
+      "updatedById": "cmsoyc3w10000hz794d05oaft",
+      "updatedAt": "2026-08-16T18:03:31.620Z"
+    },
+    {
+      "key": "integration.mapbox.token",
+      "value": "",
+      "category": "INTEGRATION",
+      "description": "Mapbox GL token (Command Center → Integrations)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:55.684Z"
+    },
+    {
+      "key": "floating_livechat_url",
+      "value": "/login",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:50:09.127Z"
+    },
+    {
+      "key": "floating_whatsapp_message",
+      "value": "Hello Rowad Saba'a Logistics, I need a quote.",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:50:15.579Z"
+    },
+    {
+      "key": "floating_position",
+      "value": "right",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:50:20.719Z"
+    },
+    {
+      "key": "floating_color",
+      "value": "#004fba",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:50:26.357Z"
+    },
+    {
+      "key": "limits.quotePerMinute",
+      "value": 10,
+      "category": "DEFAULTS",
+      "description": "Instant quote rate limit per minute per IP",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:30.800Z"
+    },
+    {
+      "key": "content.whyus",
+      "value": [
+        {
+          "desc": "AEO certified customs broker with 99.7% first-time clearance rate across all major ports.",
+          "icon": "shield",
+          "title": "Trusted Compliance"
+        },
+        {
+          "desc": "Direct contracts with top 20 ocean carriers and strategic partnerships with 300+ airlines.",
+          "icon": "globe",
+          "title": "Global Network"
+        },
+        {
+          "desc": "AI-powered route optimization and predictive analytics for cost and transit time efficiency.",
+          "icon": "bar-chart",
+          "title": "Data-Driven"
+        },
+        {
+          "desc": "Named account managers with 24/7 availability and local expertise in 45 countries.",
+          "icon": "users",
+          "title": "Dedicated Teams"
+        },
+        {
+          "desc": "All-inclusive quotes with no hidden fees. Real-time cost breakdown before booking.",
+          "icon": "credit-card",
+          "title": "Transparent Pricing"
+        },
+        {
+          "desc": "GPS-enabled tracking from origin to destination with automated milestone alerts.",
+          "icon": "activity",
+          "title": "Real-Time Visibility"
+        }
+      ],
+      "category": "CONTENT",
+      "description": "Why-us section content (icon + title + description)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:03:48.748Z"
+    },
+    {
+      "key": "guide.version",
+      "value": "1.0.0",
+      "category": "DEFAULTS",
+      "description": "Live guide version (increments with each Backup)",
+      "updatedById": null,
+      "updatedAt": "2026-08-16T18:04:11.447Z"
+    },
+    {
+      "key": "defaults.originCountryCode",
+      "value": "YE",
+      "category": "DEFAULTS",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-16T19:36:26.624Z"
+    },
+    {
+      "key": "session.timeout",
+      "value": "120",
+      "category": "DEFAULTS",
+      "description": null,
+      "updatedById": null,
+      "updatedAt": "2026-08-18T15:25:45.194Z"
+    },
+    {
+      "key": "session.ipCheck",
+      "value": "true",
+      "category": "DEFAULTS",
+      "description": null,
+      "updatedById": null,
+      "updatedAt": "2026-08-18T15:25:45.973Z"
+    },
+    {
+      "key": "session.maxPerUser",
+      "value": "3",
+      "category": "DEFAULTS",
+      "description": null,
+      "updatedById": null,
+      "updatedAt": "2026-08-18T15:25:46.670Z"
+    },
+    {
+      "key": "floating_enabled",
+      "value": true,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:43.608Z"
+    },
+    {
+      "key": "show_whatsapp",
+      "value": true,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:46.848Z"
+    },
+    {
+      "key": "show_call",
+      "value": true,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:49.786Z"
+    },
+    {
+      "key": "show_livechat",
+      "value": false,
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:54.074Z"
+    },
+    {
+      "key": "floating_whatsapp_number",
+      "value": "+966536436537",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:49:59.905Z"
+    },
+    {
+      "key": "floating_call_number",
+      "value": "+966536436537",
+      "category": "APPEARANCE",
+      "description": null,
+      "updatedById": "cmsutrkxd0003zc30tigxmdcs",
+      "updatedAt": "2026-08-20T22:50:04.854Z"
+    }
+  ],
+  "infraSecrets": [],
+  "cacheStore": [],
+  "users": [
+    {
+      "id": "cmstj84f10000swhradtb83mn",
+      "email": "test-account-1786747324929@rowadsabaa.com",
+      "name": "Account Page Test",
+      "role": "CLIENT"
+    },
+    {
+      "id": "cmsr3jdge000iqrq9yjevl0h9",
+      "email": "ops@sauditech.example",
+      "name": "NaderSoft Co. Yemen",
+      "role": "CLIENT"
+    },
+    {
+      "id": "cmsoyc3w10000hz794d05oaft",
+      "email": "admin@rowadsabaa.com",
+      "name": "Rowad Saba'a Admin",
+      "role": "SUPER_ADMIN"
+    },
+    {
+      "id": "cmsutrkxd0003zc30tigxmdcs",
+      "email": "admin@admin.com",
+      "name": "Admin(تجريبي)",
+      "role": "SUPER_ADMIN"
+    },
+    {
+      "id": "cmsutw6bp0007zc30y9olvxyr",
+      "email": "manager@manager.com",
+      "name": "(المدير (تجريبي",
+      "role": "MANAGER"
+    },
+    {
+      "id": "cmsuu4oki000jzc30gkszn42q",
+      "email": "support@support.com",
+      "name": "الدعم (تجريبي)",
+      "role": "SUPPORT"
+    },
+    {
+      "id": "cmsuu6xqh000tzc30qandpy07",
+      "email": "clint@clint.com",
+      "name": "عميل (تجريبي)",
+      "role": "CLIENT"
+    },
+    {
+      "id": "cmsxe1a1x005e128dsckzj412",
+      "email": "mohammed@mohammed.com",
+      "name": "nader",
+      "role": "CLIENT"
+    },
+    {
+      "id": "cmsxeac9h005q128dttbahxxo",
+      "email": "ibrhaim@ibrahim.ccom",
+      "name": "ibrahim",
+      "role": "CLIENT"
+    }
+  ],
+  "customers": [
+    {
+      "id": "cmspn15k2000ir0zkbz9ljcwx",
+      "name": "SaudiTech Trading Co."
+    },
+    {
+      "id": "cmsuu6y54000uzc30dxezwup8",
+      "name": "عميل (تجريبي)"
+    }
+  ],
+  "countries": [
+    {
+      "id": "cmsrre5ah0001dcclv8klzu26",
+      "code": "SA",
+      "name": "Saudi Arabia",
+      "dialCode": "+966",
+      "isActive": true,
+      "createdAt": "2026-08-13T16:55:11.946Z"
+    },
+    {
+      "id": "cmsrre5uy0002dcclszveq4e1",
+      "code": "AE",
+      "name": "United Arab Emirates",
+      "dialCode": "+971",
+      "isActive": true,
+      "createdAt": "2026-08-13T16:55:12.682Z"
+    },
+    {
+      "id": "cmsrre6fg0003dcclemoplbxd",
+      "code": "EG",
+      "name": "Egypt",
+      "dialCode": "+20",
+      "isActive": true,
+      "createdAt": "2026-08-13T16:55:13.421Z"
+    },
+    {
+      "id": "cmsrre6zp0004dcclwrknypop",
+      "code": "TR",
+      "name": "Turkey",
+      "dialCode": "+90",
+      "isActive": true,
+      "createdAt": "2026-08-13T16:55:14.149Z"
+    },
+    {
+      "id": "cmsrre7k10005dccl03mtwvmw",
+      "code": "GB",
+      "name": "United Kingdom",
+      "dialCode": "+44",
+      "isActive": true,
+      "createdAt": "2026-08-13T16:55:14.881Z"
+    },
+    {
+      "id": "cmsrre84a0006dccl790blb1d",
+      "code": "SG",
+      "name": "Singapore",
+      "dialCode": "+65",
+      "isActive": true,
+      "createdAt": "2026-08-13T16:55:15.610Z"
+    },
+    {
+      "id": "cmsud061q0000p6ikvlf9c30j",
+      "code": "YE",
+      "name": "Yemen",
+      "dialCode": "+967",
+      "isActive": true,
+      "createdAt": "2026-08-15T12:35:43.646Z"
+    },
+    {
+      "id": "cmt04f7gd003swiyfpovmwzsb",
+      "code": "CN",
+      "name": "China",
+      "dialCode": "+86",
+      "isActive": true,
+      "createdAt": "2026-08-19T13:22:05.821Z"
+    },
+    {
+      "id": "cmt0ombk800199h5te0lgyvbj",
+      "code": "ML",
+      "name": "Malaysia",
+      "dialCode": "+90",
+      "isActive": true,
+      "createdAt": "2026-08-19T22:47:30.056Z"
+    }
+  ],
+  "ports": [
+    {
+      "id": "cmsoyc76e0005hz79k2bocyql",
+      "code": "CAI",
+      "name": "Port Said"
+    },
+    {
+      "id": "cmsoyc7r10006hz79my508xcv",
+      "code": "IST",
+      "name": "Port of Istanbul"
+    },
+    {
+      "id": "cmsoyc8c60007hz79e8rqqv5o",
+      "code": "LHR",
+      "name": "London Heathrow"
+    },
+    {
+      "id": "cmsoyc8xk0008hz795lhkqy8q",
+      "code": "SIN",
+      "name": "Port of Singapore"
+    },
+    {
+      "id": "cmt04fptq003wwiyfhiyofuh6",
+      "code": "NIN",
+      "name": "NINGBO PORT"
+    },
+    {
+      "id": "cmt0omyt0001d9h5tp7trnmwr",
+      "code": "PGU",
+      "name": "Pair guiding"
+    },
+    {
+      "id": "cmsudfuw9000jp6ikhwkg07tl",
+      "code": "YYY",
+      "name": "ADEN"
+    },
+    {
+      "id": "cmsoyc4jm0001hz79390byetc",
+      "code": "JED",
+      "name": "Jeddah Islamic Port"
+    },
+    {
+      "id": "cmsoyc5cr0002hz79227cpv4j",
+      "code": "DMM",
+      "name": "King Abdulaziz Port"
+    },
+    {
+      "id": "cmsoyc5zt0003hz79irdfjmo1",
+      "code": "RUH",
+      "name": "King Khalid Intl Airport"
+    },
+    {
+      "id": "cmsoyc6ld0004hz790ai6az9p",
+      "code": "DXB",
+      "name": "Jebel Ali Port"
+    }
+  ],
+  "currencies": [
+    {
+      "id": "cmsrre9uo0009dcclp7np50v5",
+      "code": "AED",
+      "name": "UAE Dirham",
+      "symbol": "د.إ",
+      "rate": "1.0211",
+      "isDefault": false,
+      "isActive": true,
+      "updatedAt": "2026-08-16T18:01:23.654Z"
+    },
+    {
+      "id": "cmsrreaft000adccl7yfazm3w",
+      "code": "EGP",
+      "name": "Egyptian Pound",
+      "symbol": "£",
+      "rate": "0.1177",
+      "isDefault": false,
+      "isActive": true,
+      "updatedAt": "2026-08-16T18:01:25.903Z"
+    },
+    {
+      "id": "cmsrreb0f000bdcclqoygqbn0",
+      "code": "TRY",
+      "name": "Turkish Lira",
+      "symbol": "₺",
+      "rate": "0.1092",
+      "isDefault": false,
+      "isActive": true,
+      "updatedAt": "2026-08-16T18:01:27.942Z"
+    },
+    {
+      "id": "cmsrrebl0000cdcclibkqlcl6",
+      "code": "GBP",
+      "name": "British Pound",
+      "symbol": "£",
+      "rate": "4.75",
+      "isDefault": false,
+      "isActive": true,
+      "updatedAt": "2026-08-16T18:01:29.130Z"
+    },
+    {
+      "id": "cmsrrec5y000ddcclmgv79eyq",
+      "code": "SGD",
+      "name": "Singapore Dollar",
+      "symbol": "S$",
+      "rate": "2.81",
+      "isDefault": false,
+      "isActive": true,
+      "updatedAt": "2026-08-16T18:01:31.074Z"
+    },
+    {
+      "id": "cmsw1w3z000238wxjhs5n0e9r",
+      "code": "YRE",
+      "name": "Real Yemeni",
+      "symbol": "ريال",
+      "rate": "1",
+      "isDefault": false,
+      "isActive": true,
+      "updatedAt": "2026-08-17T13:55:53.492Z"
+    },
+    {
+      "id": "cmsrre8p80007dcclai7w5plp",
+      "code": "SAR",
+      "name": "Saudi Riyal",
+      "symbol": "﷼",
+      "rate": "1",
+      "isDefault": false,
+      "isActive": true,
+      "updatedAt": "2026-08-17T13:55:53.492Z"
+    },
+    {
+      "id": "cmsrre99v0008dcclc30glnzs",
+      "code": "USD",
+      "name": "US Dollar",
+      "symbol": "$",
+      "rate": "3.75",
+      "isDefault": true,
+      "isActive": true,
+      "updatedAt": "2026-08-17T13:55:53.963Z"
+    }
+  ],
+  "quotes": [],
+  "shipments": [],
+  "invoices": [
+    {
+      "id": "cmsr2nt89000l20s8buv9v7e5"
+    },
+    {
+      "id": "cmsut5zg50026p6ik9chl5rpy"
+    }
+  ],
+  "documentTemplates": [],
+  "websitePages": []
+}
