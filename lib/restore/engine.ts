@@ -120,11 +120,15 @@ function parseRegistry(repoRootPath: string): Map<string, string> {
   const text = fs.readFileSync(file, "utf8");
   const rows = new Map<string, string>();
   for (const line of text.split(/\r?\n/)) {
-    const m = line.match(/^\|\s*\*?cp-(\d{2,3})\*?\s*\|(.*)\|$/);
+    // Rows look like: | **cp-017** | **2026-10-02** | focus | desc | impact |
+    const m = line.match(/^\|\s*\*{0,2}cp-(\d{2,3})\*{0,2}\s*\|(.*)\|$/);
     if (!m) continue;
-    const cells = m[2].split("|").map((c) => c.trim());
+    const cells = m[2]
+      .split("|")
+      .map((c) => c.replace(/^\s*\*{1,2}|\*{1,2}\s*$/g, "").trim())
+      .filter(Boolean);
     if (cells.length >= 4 && /^\d{4}-\d{2}-\d{2}$/.test(cells[0].slice(0, 10))) {
-      rows.set(`cp-${m[1]}`, cells.slice(1, 4).join(" — "));
+      rows.set(`cp-${m[1]}`, cells.slice(1, Math.min(4, cells.length)).join(" — "));
     }
   }
   return rows;
